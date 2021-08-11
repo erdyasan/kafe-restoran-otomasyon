@@ -1,12 +1,25 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <app-header />
+  <div class="container">
+    <router-view />
   </div>
-  <router-view />
 </template>
-
-<style>
+<script>
+import AppHeader from "@/components/Header.vue";
+export default {
+  name: "App",
+  components: {
+    AppHeader,
+  },
+  created() {
+    this.$store.dispatch("init_login");
+    this.$store.dispatch("init_categories");
+    this.$store.dispatch("init_products");
+    this.$store.dispatch("init_desks");
+  },
+};
+</script>
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
