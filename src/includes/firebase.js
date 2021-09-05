@@ -2,14 +2,13 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 const config = {
-  apiKey: "AIzaSyCFsWlTVCeaDKesUcBcytPDLeBxUAQJAOU",
-  authDomain: "realtimeapp-dfe42.firebaseapp.com",
-  projectId: "realtimeapp-dfe42",
-  storageBucket: "realtimeapp-dfe42.appspot.com",
-  messagingSenderId: "867115103681",
-  appId: "1:867115103681:web:4ac446aed96115132eab40",
+  apiKey: "AIzaSyDAbIaSkzr1-yicnfpEzq7-hsGksmOkYyE",
+  authDomain: "adisyon2-bbf56.firebaseapp.com",
+  projectId: "adisyon2-bbf56",
+  storageBucket: "adisyon2-bbf56.appspot.com",
+  messagingSenderId: "202173956145",
+  appId: "1:202173956145:web:9e0cadf80e960ee4ce9510"
 };
-
 firebase.initializeApp(config);
 const db = firebase.firestore();
 const auth = firebase.auth();

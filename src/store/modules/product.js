@@ -9,14 +9,13 @@ export default {
       state.products.push(payload);
     },
     updateProduct(state, payload) {
-      let index = state.products.indexOf(
-        (X) => X.productId == payload.productId
+      let index = state.products.findIndex(
+        (X) => X.productId === payload.productId
       );
-      delete payload.productId;
-      state.products[index] = { ...payload };
+      state.products[index] = payload;
     },
     deleteProduct(state, id) {
-      let index = state.products.indexOf((x) => x.productId == id);
+      let index = state.products.findIndex((x) => x.productId == id);
       state.products.splice(index, 1);
     },
   },
@@ -65,7 +64,8 @@ export default {
       await productsCollection.doc(productId).update({
         ...payload,
       });
-      commit("updateProduct", { productId: productId, ...payload });
+      payload.productId = productId;
+      commit("updateProduct", { ...payload });
     },
     async deleteProduct({ commit }, id) {
       await productsCollection.doc(id).delete();
