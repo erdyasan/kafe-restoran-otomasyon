@@ -1,6 +1,8 @@
 # adisyon
 ## Please don't forget to chage firebase.js file
 ## Project setup
+install and usage youtube video link
+https://youtu.be/UHUV6J4NPks
 ```
 npm install
 ```
