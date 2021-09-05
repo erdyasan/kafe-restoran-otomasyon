@@ -4,6 +4,9 @@
       <div v-if="show_alert" class="alert" :class="alert_variant">
         {{ alert_text }}
       </div>
+      <div class="d-flex justify-content-center">
+        <h2>Giriş ekranı</h2>
+      </div>
       <form @submit.prevent="login">
         <div class="form-group">
           <label for="mail">E posta adresiniz</label>

@@ -9,6 +9,9 @@
       >
         {{ alert_message }}
       </div>
+      <div class="d-flex justify-content-center">
+        <h2>Kayıt ekranı</h2>
+      </div>
       <form @submit.prevent="register">
         <div class="form-group">
           <label for="mail">E posta adresiniz</label>
