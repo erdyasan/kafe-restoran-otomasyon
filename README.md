@@ -1,5 +1,5 @@
 # adisyon
-
+###Please don't forget to chage firebase.js file
 ## Project setup
 ```
 npm install
