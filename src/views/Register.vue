@@ -59,6 +59,7 @@ export default {
   },
   methods: {
     async register() {
+      console.log(this.email);
       this.alert_message = "Please wait signing...";
       this.alert_variant = "alert-primary";
       this.show_alert = true;
@@ -77,6 +78,7 @@ export default {
       this.alert_message = "Success...";
       this.alert_variant = "alert-success";
       this.show_alert = true;
+      window.location.reload();
     },
   },
 };

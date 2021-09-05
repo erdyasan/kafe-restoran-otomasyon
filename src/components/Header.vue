@@ -31,6 +31,11 @@
           >
         </li>
         <li class="nav-item">
+          <router-link :to="{ name: 'Kasa' }" class="nav-link"
+            >Kasa</router-link
+          >
+        </li>
+        <li class="nav-item">
           <router-link :to="{ name: 'Urunler' }" class="nav-link"
             >Ürünler</router-link
           >
@@ -40,18 +45,18 @@
             >Sipariş</router-link
           >
         </li>
-        <li class="nav-item" v-if="!$store.state.userLoggedin">
+        <li class="nav-item" v-if="!$store.state.auth.userLoggedin">
           <router-link class="nav-link" :to="{ name: 'Login' }"
             >Giriş Yap</router-link
           >
         </li>
-        <li class="nav-item" v-if="!$store.state.userLoggedin">
+        <li class="nav-item" v-if="!$store.state.auth.userLoggedin">
           <router-link class="nav-link" :to="{ name: 'Register' }"
             >Kayıt oL</router-link
           >
         </li>
         <li @click="logOut" class="nav-item" v-else>
-          <a class="nav-link"> Çıkış yap </a>
+          <a class="nav-link" style="cursor: pointer"> Çıkış yap </a>
         </li>
       </ul>
     </div>

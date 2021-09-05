@@ -117,7 +117,6 @@ export default {
         snapshot.forEach((order) => {
           let urunAdet = parseFloat(order.data()["productCount"]);
           let urunFiyat = parseFloat(order.data()["productPrice"]);
-          console.log("Ürün adet ve fiyatı " + urunAdet + "-" + urunFiyat);
           this.toplamFiyat = this.toplamFiyat + urunAdet * urunFiyat;
           siparis.push({
             orderId: order.id,
@@ -128,7 +127,9 @@ export default {
       });
   },
   computed: {
-    ...mapState(["categories"]),
+    ...mapState({
+      categories: (state) => state.category.categories,
+    }),
   },
   methods: {
     kategoriSec(value) {

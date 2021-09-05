@@ -40,17 +40,6 @@ export default {
       type: Object,
       required: true,
     },
-    index: {
-      required: true,
-    },
-    sil: {
-      type: Function,
-      required: true,
-    },
-    masaGuncelle: {
-      type: Function,
-      required: true,
-    },
   },
   data() {
     return {
@@ -73,7 +62,7 @@ export default {
       try {
         await this.updateDesk({
           deskId: this.masa.deskId,
-          deskName: this.deskName,
+          deskName: this.masaAdi,
         });
       } catch (ex) {
         this.alert_text = "Masa güncelenirken hata oluştu!" + ex;
@@ -81,7 +70,6 @@ export default {
         return;
       }
 
-      this.masaGuncelle(this.index, this.masaAdi);
       this.alert_text = "Masa güncellemesi başarılı!";
       this.alert_variant = "alert-success";
       this.duzenle = false;

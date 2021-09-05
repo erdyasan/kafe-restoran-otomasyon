@@ -71,7 +71,9 @@ export default {
     };
   },
   computed: {
-    ...mapState(["categories"]),
+    ...mapState({
+      categories: (state) => state.category.categories,
+    }),
     filteredList() {
       if (this.filterList.length > 0) {
         return this.categories.filter((record) => {

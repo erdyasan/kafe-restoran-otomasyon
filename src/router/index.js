@@ -24,6 +24,11 @@ const routes = [
     },
   },
   {
+    path: "/kasa/detail/:id",
+    name: "KasaDetail",
+    component: () => import("@/views/KasaDetail.vue"),
+  },
+  {
     path: "/about",
     name: "About",
     // route level code-splitting
@@ -39,6 +44,14 @@ const routes = [
     path: "/masalar",
     name: "Masalar",
     component: Masalar,
+    meta: {
+      requireAuth: true,
+    },
+  },
+  {
+    path: "/kasa",
+    name: "Kasa",
+    component: () => import("@/views/Kasa.vue"),
     meta: {
       requireAuth: true,
     },
@@ -90,7 +103,7 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   if (
     !to.matched.some((record) => record.meta.requireAuth) &&
-    !store.state.userLoggedin
+    !store.state.auth.userLoggedin
   ) {
     next();
     return;
@@ -98,13 +111,13 @@ router.beforeEach((to, from, next) => {
 
   if (
     to.matched.some((record) => record.meta.cantLogifLogged) &&
-    store.state.userLoggedin
+    store.state.auth.userLoggedin
   ) {
     router.push({ name: "Home" });
     return;
   }
 
-  if (store.state.userLoggedin) {
+  if (store.state.auth.userLoggedin) {
     next();
     return;
   } else {

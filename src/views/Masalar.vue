@@ -33,20 +33,12 @@
         />
       </div>
       <hr />
-      <masa-item
-        v-for="(desk, index) in deskList"
-        :sil="deleteDesk"
-        :index="index"
-        :key="desk.deskId"
-        :masa="desk"
-        :masaGuncelle="updateDesk"
-      />
+      <masa-item v-for="desk in deskList" :key="desk.deskId" :masa="desk" />
     </div>
   </div>
 </template>
 
 <script>
-import { auth, desksCollection } from "@/includes/firebase";
 import { mapActions, mapState } from "vuex";
 import MasaItem from "@/components/MasaItem/MasaItem";
 export default {
@@ -56,7 +48,9 @@ export default {
   },
 
   computed: {
-    ...mapState(["desks"]),
+    ...mapState({
+      desks: (state) => state.desk.desks,
+    }),
     deskList() {
       if (this.filt.length < 1) {
         return this.desks;
@@ -78,29 +72,8 @@ export default {
       deskName: "",
     };
   },
-  async created() {
-    const getDesks = await desksCollection
-      .where("userId", "==", auth.currentUser.uid)
-      .get();
-
-    const tempDesks = [];
-    getDesks.forEach((doc) => {
-      tempDesks.push({
-        deskId: doc.id,
-        deskName: doc.data()["deskName"],
-      });
-    });
-    tempDesks.sort((a, b) => {
-      if (a.deskCreateTime > b.deskCreateTime) {
-        return a;
-      } else {
-        return b;
-      }
-    });
-    this.desks = tempDesks;
-  },
   methods: {
-    ...mapActions(["addDesk"]),
+    ...mapActions(["addDesk", "updateDesk"]),
     sortList() {
       this.desks.sort((a, b) => {
         if (a.deskCreateTime > b.deskCreateTime) {
@@ -129,12 +102,6 @@ export default {
       this.deskName = "";
       this.alert_text = "Masa başarıyla eklendi";
       this.alert_variant = "alert-success";
-    },
-    deleteDesk(index) {
-      this.desks.splice(index, 1);
-    },
-    updateDesk(index, values) {
-      this.desks[index].deskName = values;
     },
   },
 };

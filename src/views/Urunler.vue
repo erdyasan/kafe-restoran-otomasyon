@@ -35,7 +35,10 @@ export default {
     };
   },
   computed: {
-    ...mapState(["categories", "products"]),
+    ...mapState({
+      categories: (state) => state.category.categories,
+      products: (state) => state.product.products,
+    }),
   },
   async created() {
     const productsSnapshot = await productsCollection
