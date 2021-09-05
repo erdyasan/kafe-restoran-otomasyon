@@ -12,6 +12,7 @@ export default {
     AppHeader,
   },
   created() {
+    console.log("Erdinç YAŞAN");
     this.$store.dispatch("init_login");
     this.$store.dispatch("init_categories");
     this.$store.dispatch("init_products");

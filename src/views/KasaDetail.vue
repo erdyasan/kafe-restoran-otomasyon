@@ -209,6 +209,9 @@ export default {
           });
           this.fis.totalPrice = this.fis.totalPrice + count * price;
         }
+        if (this.alinanPara > 0) {
+          this.paraUstuHesapla();
+        }
       }
     },
     fise1AdetEkle(id, name, price, orderCount) {
@@ -242,6 +245,9 @@ export default {
       }
       if (added) {
         this.fis.totalPrice = this.fis.totalPrice + price;
+      }
+      if (this.alinanPara > 0) {
+        this.paraUstuHesapla();
       }
     },
     tumurunleriFiseEkle() {

@@ -71,15 +71,11 @@ export default {
     this.kategori = this.categories[0].categoryId;
   },
   methods: {
-    setKategori() {
-      console.log(this.kategori);
-    },
     ...mapActions(["addProduct"]),
     async urunEkle() {
       const urunAdi = this.urunAdi;
       const urunFiyat = parseFloat(this.urunFiyati);
       const kategori = this.kategori;
-      console.log(urunFiyat, urunAdi, kategori);
       this.alert_variant = "alert-primary";
       this.alert_text = "Lütfen bekleyiniz ürün eklenior...";
       this.show_alert = true;

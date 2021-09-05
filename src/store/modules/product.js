@@ -23,7 +23,6 @@ export default {
   actions: {
     async init_products({ state, rootState, commit }) {
       if (state.products.length == 0 && rootState.auth.userLoggedin) {
-        console.log("products initialized");
         const productsSnapshot = await productsCollection
           .where("userId", "==", auth.currentUser.uid)
           .get();

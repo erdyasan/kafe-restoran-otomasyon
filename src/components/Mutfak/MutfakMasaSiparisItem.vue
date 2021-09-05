@@ -17,13 +17,9 @@ export default {
   },
   methods: {
     async siparisHazir() {
-      try {
-        await ordersCollection
-          .doc(this.order.orderId)
-          .update({ orderReady: true });
-      } catch (ex) {
-        console.log(ex);
-      }
+      await ordersCollection
+        .doc(this.order.orderId)
+        .update({ orderReady: true });
     },
   },
 };

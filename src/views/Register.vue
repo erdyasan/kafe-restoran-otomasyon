@@ -59,7 +59,6 @@ export default {
   },
   methods: {
     async register() {
-      console.log(this.email);
       this.alert_message = "Please wait signing...";
       this.alert_variant = "alert-primary";
       this.show_alert = true;

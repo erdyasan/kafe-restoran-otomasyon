@@ -4,8 +4,6 @@ import router from "./router";
 import store from "./store";
 import "animate.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "jquery/src/jquery.js";
-import "bootstrap/dist/js/bootstrap.min.js";
 import { auth } from "./includes/firebase";
 
 let app;

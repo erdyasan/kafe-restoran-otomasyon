@@ -19,7 +19,10 @@ export default {
     },
   },
   actions: {
-    async init_desks({ commit }) {
+    async init_desks({ rootState, commit }) {
+      if (!rootState.auth.userLoggedin) {
+        return;
+      }
       let desks = [];
       const deskSnapshot = await desksCollection
         .where("userId", "==", auth.currentUser.uid)

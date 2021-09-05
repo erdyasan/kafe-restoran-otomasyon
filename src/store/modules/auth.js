@@ -28,7 +28,6 @@ export default {
       commit("toggle_auth");
     },
     async login({ commit }, payload) {
-      console.log(payload);
       await auth.signInWithEmailAndPassword(
         payload.userMail,
         payload.userPassword

@@ -20,28 +20,43 @@
           >
         </li>
         <li class="nav-item">
-          <router-link :to="{ name: 'Mutfak' }" class="nav-link"
+          <router-link
+            v-show="$store.state.auth.userLoggedin"
+            :to="{ name: 'Mutfak' }"
+            class="nav-link"
             >Mutfak</router-link
           >
         </li>
 
         <li class="nav-item">
-          <router-link :to="{ name: 'Masalar' }" class="nav-link"
+          <router-link
+            v-show="$store.state.auth.userLoggedin"
+            :to="{ name: 'Masalar' }"
+            class="nav-link"
             >Masalar</router-link
           >
         </li>
         <li class="nav-item">
-          <router-link :to="{ name: 'Kasa' }" class="nav-link"
+          <router-link
+            v-show="$store.state.auth.userLoggedin"
+            :to="{ name: 'Kasa' }"
+            class="nav-link"
             >Kasa</router-link
           >
         </li>
         <li class="nav-item">
-          <router-link :to="{ name: 'Urunler' }" class="nav-link"
+          <router-link
+            v-show="$store.state.auth.userLoggedin"
+            :to="{ name: 'Urunler' }"
+            class="nav-link"
             >Ürünler</router-link
           >
         </li>
         <li class="nav-item">
-          <router-link :to="{ name: 'Siparis' }" class="nav-link"
+          <router-link
+            v-show="$store.state.auth.userLoggedin"
+            :to="{ name: 'Siparis' }"
+            class="nav-link"
             >Sipariş</router-link
           >
         </li>
